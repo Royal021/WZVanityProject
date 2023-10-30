@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvuqx3rqoipw6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqphj"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cwyco"]
+material = SubResource("StandardMaterial3D_hqphj")
+size = Vector3(8, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48ti7"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mbs3p"]
+material = SubResource("StandardMaterial3D_48ti7")
+size = Vector3(8, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i23hm"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fniwx"]
+material = SubResource("StandardMaterial3D_i23hm")
+size = Vector3(8, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4t52u"]
+size = Vector3(8, 1, 3)
+
+[node name="straight_line_root" type="StaticBody3D"]
+
+[node name="left_floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, -1)
+mesh = SubResource("BoxMesh_cwyco")
+
+[node name="middle_floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, 0)
+mesh = SubResource("BoxMesh_mbs3p")
+
+[node name="right_floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, 1)
+mesh = SubResource("BoxMesh_fniwx")
+
+[node name="floor_collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, 0)
+shape = SubResource("BoxShape3D_4t52u")

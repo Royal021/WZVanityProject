@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://cgh2cqu6i5mv3"]
+[gd_scene load_steps=4 format=3 uid="uid://cgh2cqu6i5mv3"]
+
+[ext_resource type="PackedScene" uid="uid://dvuqx3rqoipw6" path="res://scenes/straight_line_root.tscn" id="1_53xab"]
+[ext_resource type="PackedScene" uid="uid://clx3jkpcij431" path="res://scenes/player_root.tscn" id="2_ehxyp"]
+[ext_resource type="PackedScene" uid="uid://b1kurgnmthysw" path="res://scenes/turn_right_root.tscn" id="3_nc16t"]
 
 [node name="world_root" type="Node3D"]
+
+[node name="straight_line_root" parent="." instance=ExtResource("1_53xab")]
+
+[node name="player_root" parent="." instance=ExtResource("2_ehxyp")]
+
+[node name="player_camera" type="Camera3D" parent="player_root"]
+transform = Transform3D(-4.37114e-08, 0.5, -0.866025, 0, 0.866025, 0.5, 1, 2.18557e-08, -3.78552e-08, -3.5, 4, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.725206, 0.688532, 0, -0.688532, 0.725206, 0, 6, 8)
+
+[node name="turn_right_root" parent="." instance=ExtResource("3_nc16t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="straight_line_root2" parent="." instance=ExtResource("1_53xab")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16, 0, 8)
